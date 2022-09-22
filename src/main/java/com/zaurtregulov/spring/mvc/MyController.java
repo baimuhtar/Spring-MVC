@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
+@RequestMapping("/employee")
 public class MyController {
     @RequestMapping("/")
     public String showFirstView() {
@@ -17,6 +18,14 @@ public class MyController {
     @RequestMapping("/askDetails")
     public String askEmployeeDetails() {
         return "ask-emp-details-view";
+    }
+
+    @RequestMapping("/showDetails")
+    public String showEmpDetails(@RequestParam("employeeName") String empName, Model model) {
+
+        empName = "Mr. " + empName +"!";
+        model.addAttribute("nameAttribute", empName);
+        return "show-emp-details-view";
     }
 
     //@RequestMapping("showDetails")
@@ -36,16 +45,15 @@ public class MyController {
 //        return "show-emp-details-view";
 //    }
 
-    @RequestMapping("/showDetails")
-    public String showEmpDetails(@RequestParam("employeeName") String empName, Model model) {
-
-        empName = "Mr. " + empName +"!";
-        model.addAttribute("nameAttribute", empName);
+//    @RequestMapping("/showDetails")
+//    public String showEmpDetails(@RequestParam("employeeName") String empName, Model model) {
+//
+//        empName = "Mr. " + empName +"!";
+//        model.addAttribute("nameAttribute", empName);
 
 
 //        model.addAttribute("description", " - udemy instructor");
 
 
-        return "show-emp-details-view";
-    }
+
 }
