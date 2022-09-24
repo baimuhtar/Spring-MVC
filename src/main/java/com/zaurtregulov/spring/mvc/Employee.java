@@ -1,10 +1,17 @@
 package com.zaurtregulov.spring.mvc;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Employee {
+    @Size(min = 2, max = 20, message = "name must be minimum 2 symbols")
     private String name;
+//    @NotEmpty(message = "surname is required field")
+    @NotBlank(message = "surname is required field") // проверяет на пробелы
     private String surname;
     private int salary;
     private String department;

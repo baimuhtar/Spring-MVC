@@ -1,4 +1,6 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
 <!DOCTYPE html>
 <html>
 <body>
@@ -21,10 +23,12 @@ Your department: ${employee.department}
 Your car: ${employee.carBrand}
 <br>
 Language(s):
+
 <ul>
     <c:forEach var="lang" items="${employee.languages}">
         <li> ${lang} </li>
     </c:forEach>
+
 </ul>
 
 </body>
